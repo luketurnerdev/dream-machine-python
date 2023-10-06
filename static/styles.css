@@ -1,0 +1,122 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .container {
+    /* border: 2px solid red; */
+    background-color: #0b101b;
+    width: 100vw;
+    /* height:100vh; */
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #282c34; */
+    height: 100vh;
+    color: white;
+  }
+  
+  .middle {
+    /* border: 2px solid pink; */
+    width: 60vw;
+    /* position: relative; */
+  }
+  .left {
+    /* border: 2px solid green; */
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-left:30px;
+    /* padding: 0 20px; */
+  
+  }
+  
+  p {
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 25%;
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+  
+  .right {
+    width: 20vw;
+    /* border: 2px solid red; */
+    margin-right:30px;
+    /* border: 2px solid green; */
+  }
+  
+  .qr {
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 50%;
+  }
+  
+  .button {
+    height: 60px;
+    width: 120px;
+    display: inline-block;
+    /* padding: 12px 24px; */
+    margin: 0 20px;
+    font-size: 16px;
+    /* font-weight: bold; */
+    text-align: center;
+    /* text-transform: uppercase; */
+    border: none;
+    background-color: #97bad2aa;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  /* Hover effect */
+  .button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Optional: Add more styles for different button states (e.g., active, disabled) */
+  .button:active {
+    background-color: #1c6ea4;
+  }
+  
+  .buttons {
+    /* border: 2px solid red; */
+    display: flex;
+    height: 50px;
+    width: 60vw;
+    justify-content: center;
+    position: absolute;
+    top: 75%;
+    /* justify-content: flex-end; */
+    /* flex-direction: row; */
+  }
