@@ -23,6 +23,8 @@
     font-weight:600;
     width: 100%;
     text-align: center;
+    text-transform: uppercase;
+
   } 
 
   .modal-content {
@@ -120,7 +122,6 @@
     font-size: 16px;
     /* font-weight: bold; */
     text-align: center;
-    /* text-transform: uppercase; */
     border: none;
     background-color: #97bad2aa;
     color: #fff;
