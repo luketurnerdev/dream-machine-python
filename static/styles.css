@@ -18,7 +18,20 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
-  
+  #promptContainer > p {
+    font-size:16px;
+    font-weight:600;
+    width: 100%;
+    text-align: center;
+  } 
+
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .App-link {
     color: #61dafb;
   }
@@ -60,7 +73,7 @@
   
   }
   
-  p {
+  .side-text {
     /* border: 2px solid red; */
     position: absolute;
     top: 25%;
@@ -74,6 +87,22 @@
     margin-right:30px;
     /* border: 2px solid green; */
   }
+
+  .generateStuff {
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modal {
+    /* border: 2px solid red; */
+    height: 150px;
+    width: 300px;
+    background-color: white;
+    color: black;
+    display: none;
+  }
   
   .qr {
     /* border: 2px solid red; */
@@ -82,11 +111,12 @@
   }
   
   .button {
+
     height: 60px;
     width: 120px;
     display: inline-block;
     /* padding: 12px 24px; */
-    margin: 0 20px;
+    margin: 5px 20px;
     font-size: 16px;
     /* font-weight: bold; */
     text-align: center;

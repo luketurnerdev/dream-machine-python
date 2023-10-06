@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Your HTML Page</title>
+    <title>Dream Machine</title>
 </head>
 <body>
     <div class="App">
         <div class="container">
             <div class="left">
-                <p>Everybody has a dream.</p>
+                <p class="side-text">Everybody has a dream.</p>
                 <img class="qr" src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fwww.google.com&chs=180x180&choe=UTF-8&chld=L|2" alt="QR Code" />
             </div>
             <div class="middle">
@@ -20,10 +21,26 @@
                     <button class="button">Share</button>
                     <button class="button">Connect</button>
                     <button class="button">Delete</button>
+                    
                 </div>
+
+                <div class="generateStuff">
+
+                    <button class="button" id="generateButton">Generate Random Prompt</button>
+
+                 <!-- Modal Container -->
+                 <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <div id="promptContainer"></div>
+                    </div>
+                    <button class="button" id="close"> Close</button>
+                </div>
+                </div>
+               
             </div>
+
             <div class="right">
-                <p>Let's make it a real one.</p>
+                <p class="side-text">Let's make it a real one.</p>
             </div>
         </div>
     </div>
@@ -39,6 +56,68 @@
                 });
             });
         });
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const generateButton = document.getElementById("generateButton");
+    const modal = document.getElementById("myModal");
+    const promptContainer = document.getElementById("promptContainer");
+    const closeBtn = document.getElementById("close");
+
+    // Event listener for button click to open the modal
+    generateButton.addEventListener("click", function() {
+        
+        // Make an AJAX request to your server endpoint
+        fetch("/generate_prompt")
+        .then(response => response.json())
+        .then(data => {
+                modal.style.display = "block"; // show the modal
+                // Display the random text prompt in the modal
+                promptContainer.innerHTML = `<p>${data.prompt}</p>`;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    });
+
+    // Event listener for closing the modal
+    closeBtn.addEventListener("click", function() {
+        promptContainer.innerHTML = ""; // Clear the prompt container
+        modal.style.display = "none"; // Hide the modal
+    });
+
+    // Close the modal if the user clicks outside of it
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            promptContainer.innerHTML = ""; // Clear the prompt container
+            modal.style.display = "none"; // Hide the modal
+        }
+    });
+});
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Get references to the button and prompt container
+    const generateButton = document.getElementById("generateButton");
+    const promptContainer = document.getElementById("promptContainer");
+
+    // Event listener for button click
+    generateButton.addEventListener("click", function() {
+        event.preventDefault();
+        generateButton.removeEventListener("click", arguments.callee);
+        // Make an AJAX request to your server endpoint
+        fetch("/generate_prompt")
+            .then(response => response.json())
+            .then(data => {
+                // Display the random text prompt in the prompt container
+                promptContainer.innerHTML = `<p>${data.prompt}</p>`;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    });
+});
     </script>
 </body>
 </html>

@@ -2,8 +2,23 @@
 
 from flask import Flask, request, jsonify, render_template
 import subprocess
+import random
 
 app = Flask(__name__)
+
+prompts = [
+    "WrWrite a poem about a sunset.Write a poem about a sunset.Write a poem about a sunset.ite a short story about a journey through the forest.",
+    "DescriWrite a poem about a sunset.Write a poem about a sunset.be your ideal vacation destination.",
+    "CreateWrite a poem about a sunset. a dialogue between two fictional characters.",
+    "Write a poem about a sunset.Write a poem about a sunset.Write a poem about a sunset.Write a poem about a sunset.",
+    # Add more prompts to the list
+]
+
+@app.route('/generate_prompt')
+def generate_prompt():
+    # Choose a random prompt from the list
+    random_prompt = random.choice(prompts)
+    return jsonify({"prompt": random_prompt})
 
 @app.route('/', methods=['POST'])
 def run_script():
